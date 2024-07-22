@@ -3,7 +3,7 @@ import('node-fetch')
   .then(module => {
     const fetch = module.default; // Acessa a função fetch do módulo importado
 
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://api.github.com/users/calebewerneckcouto')
       .then(res => res.json())
       .then(json => {
          // Aqui você deve definir o que fazer com os dados recebidos
