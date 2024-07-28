@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .task-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .task-item.completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .task-item .remove-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .task-item .remove-btn:hover {
+            background-color: #e60000;
+        }
+        .task-input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .task-input-container input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .task-input-container button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .task-input-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <div class="task-input-container">
+            <input type="text" id="taskInput" placeholder="Digite uma nova tarefa">
+            <button id="addTaskButton">Adicionar Tarefa</button>
+        </div>
+        <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <script>
+        // Função para adicionar uma nova tarefa à lista
+        function addTask() {
+            const input = document.querySelector('#taskInput');
+            const taskText = input.value.trim();
+            
+            if (taskText === '') {
+                alert('Por favor, digite uma tarefa.');
+                return;
+            }
+
+            // Cria um novo item de lista
+            const li = document.createElement('li');
+            li.className = 'task-item';
+            
+            // Cria o checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.addEventListener('change', function () {
+                li.classList.toggle('completed', checkbox.checked);
+            });
+
+            // Cria o texto da tarefa
+            const span = document.createElement('span');
+            span.textContent = taskText;
+            
+            // Cria o botão de remover
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Excluir';
+            removeButton.className = 'remove-btn';
+            removeButton.onclick = function (event) {
+                event.stopPropagation();
+                li.remove();
+            };
+
+            // Adiciona o checkbox, texto e botão ao item de lista
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            li.appendChild(removeButton);
+
+            // Adiciona o item de lista à lista de tarefas
+            document.querySelector('#taskList').appendChild(li);
+
+            // Limpa o input
+            input.value = '';
+        }
+
+        // Adiciona um evento de clique ao botão para adicionar a tarefa
+        document.querySelector('#addTaskButton').addEventListener('click', addTask);
+
+        // Permite adicionar a tarefa pressionando Enter
+        document.querySelector('#taskInput').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>

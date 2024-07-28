@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo querySelector</title>
+    <style>
+        .destaque {
+            color: red; /* Correção: "vermelho" para "red" */
+            font-weight: bold;
+        }
+        #especial {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="cabecalho">Bem-vindo à Minha Página</h1>
+    <p id="especial">Este é um parágrafo especial.</p>
+    <p class="destaque">Este parágrafo será destacado.</p>
+    <p class="destaque">Este é outro parágrafo destacado.</p>
+    <button id="mudarCorBotao">Mudar Cor</button>
+
+    <script>
+        // Usando querySelector para selecionar um único elemento
+        let paragrafoEspecial = document.querySelector('#especial');
+        let paragrafoDestaque = document.querySelector('.destaque');
+        
+        // Alterar o conteúdo do parágrafo especial
+        if (paragrafoEspecial) {
+            paragrafoEspecial.innerHTML = 'Este parágrafo especial foi atualizado.';
+        }
+
+        // Alterar o estilo do primeiro parágrafo com a classe 'destaque'
+        if (paragrafoDestaque) {
+            paragrafoDestaque.style.color = 'blue'; // Correção: "azul" para "blue"
+        }
+
+        // Adicionar um evento ao botão
+        let mudarCorBotao = document.querySelector('#mudarCorBotao');
+        if (mudarCorBotao) {
+            mudarCorBotao.addEventListener('click', () => {
+                // Mudar a cor do texto dos parágrafos com a classe 'destaque'
+                let paragrafosDestaque = document.querySelectorAll('.destaque');
+                paragrafosDestaque.forEach(paragrafo => {
+                    paragrafo.style.color = 'green'; // Correção: "verde" para "green"
+                });
+            });
+        }
+    </script>
+</body>
+</html>

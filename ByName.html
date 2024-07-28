@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element ByName</title>
+</head>
+<body>
+    <p name="nomeQualquer"></p>
+    <p name="nomeQualquer"></p>
+    <p id="texto"></p>
+</body>
+<script>
+    // Obtendo todos os elementos com o atributo 'name' igual a 'nomeQualquer'
+    let paragrafosNomeQualquer = document.getElementsByName('nomeQualquer');
+    
+    // Obtendo o elemento com id 'texto'
+    let paragrafoTexto = document.getElementById('texto');
+    
+    // Verificando se existem pelo menos dois elementos com o atributo 'name'
+    if (paragrafosNomeQualquer.length > 0) {
+        paragrafosNomeQualquer[0].innerHTML = ' test';
+    }
+    if (paragrafosNomeQualquer.length > 1) {
+        paragrafosNomeQualquer[1].innerHTML = ' test2';
+    }
+    
+    // Definindo o texto do elemento com id 'texto'
+    if (paragrafoTexto) {
+        paragrafoTexto.innerHTML = ' Calebe';
+    }
+</script>
+</html>

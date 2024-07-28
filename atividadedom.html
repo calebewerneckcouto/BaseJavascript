@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Completo</title>
+    <style>
+        /* Adicione algum estilo básico para melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Seção para Atividade 01 -->
+    <div class="section">
+        <h1>Atividade 01</h1>
+        <input type="text" id="inputTexto01" placeholder="Digite algo...">
+        <button id="btnMostrar">Mostrar no Console</button>
+    </div>
+
+    <!-- Seção para Atividade 02 -->
+    <div class="section">
+        <h1>Atividade 02</h1>
+        <input type="text" id="inputTexto02" placeholder="Digite algo...">
+        <button id="btnAtualizar">Atualizar Parágrafo</button>
+        <p id="paragrafoTexto">O valor do input aparecerá aqui.</p>
+    </div>
+
+    <script>
+        // Atividade 01: Exibir Valor do Input no Console
+        function getValue() {
+            // Seleciona o elemento input pelo ID
+            const input = document.querySelector('#inputTexto01');
+            // Obtém o valor do input
+            const valor = input.value;
+            // Exibe o valor no console
+            console.log(valor);
+        }
+
+        // Adiciona um evento de clique ao botão da Atividade 01
+        document.querySelector('#btnMostrar').addEventListener('click', getValue);
+
+        // Atividade 02: Exibir Valor do Input em um Parágrafo
+        function valorInput() {
+            // Seleciona o elemento input pelo ID
+            const input = document.querySelector('#inputTexto02');
+            // Obtém o valor do input
+            const valor = input.value;
+            // Seleciona o elemento parágrafo pelo ID
+            const paragrafo = document.querySelector('#paragrafoTexto');
+            // Define o texto do parágrafo para o valor do input
+            paragrafo.textContent = valor;
+        }
+
+        // Adiciona um evento de clique ao botão da Atividade 02
+        document.querySelector('#btnAtualizar').addEventListener('click', valorInput);
+    </script>
+</body>
+</html>

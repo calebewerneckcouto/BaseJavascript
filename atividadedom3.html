@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Atividades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Seção para Atividade 05 -->
+    <div class="section">
+        <h1>Atividade 05</h1>
+        <ul id="lista">
+            <li class="item">Item 1</li>
+            <li class="item">Item 2</li>
+            <li>Item 3</li>
+            <li class="item">Item 4</li>
+            <li>Item 5</li>
+        </ul>
+        <button id="mostrarItens">Mostrar Itens com Classe 'item'</button>
+    </div>
+
+    <!-- Seção para Atividade 06 -->
+    <div class="section">
+        <h1>Atividade 06</h1>
+        <ul id="listaTroca">
+            <li>Texto 1</li>
+            <li>Texto 2</li>
+            <li>Texto 3</li>
+        </ul>
+        <button id="trocarTexto">Trocar Texto do Segundo Item</button>
+    </div>
+
+    <script>
+        // Atividade 05: Selecionar todos os <li> com a classe 'item'
+        function mostrarItens() {
+            // Seleciona todos os elementos <li> com a classe 'item' dentro da <ul> com ID 'lista'
+            const itens = document.querySelectorAll('#lista .item');
+            // Exibe os itens no console
+            itens.forEach(item => {
+                console.log(item.textContent);
+            });
+        }
+
+        // Adiciona um evento de clique ao botão da Atividade 05
+        document.querySelector('#mostrarItens').addEventListener('click', mostrarItens);
+
+        // Atividade 06: Trocar o texto de um elemento <li> dentro de uma <ul>
+        function trocarTexto() {
+            // Seleciona o segundo item da lista com ID 'listaTroca'
+            const lista = document.querySelector('#listaTroca');
+            const itens = lista.querySelectorAll('li');
+            if (itens.length > 1) {
+                // Troca o texto do segundo item
+                itens[1].textContent = 'Texto Atualizado';
+            }
+        }
+
+        // Adiciona um evento de clique ao botão da Atividade 06
+        document.querySelector('#trocarTexto').addEventListener('click', trocarTexto);
+    </script>
+</body>
+</html>
