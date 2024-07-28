@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca de Imagem com Mouseover</title>
+    <style>
+        /* Adicionando um estilo básico para a imagem */
+        img {
+            width: 200px; /* Definindo um tamanho padrão */
+            height: auto; /* Mantendo a proporção da imagem */
+            transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+        }
+    </style>
+</head>
+<body>
+    <h1>Troca de Imagem com Mouseover</h1>
+    <img id="lampada" src="1.jpeg" alt="Lâmpada" />
+
+    <script>
+        // Selecionando o elemento da imagem pelo ID
+        const lampada = document.getElementById('lampada');
+
+        // Função para trocar a imagem quando o mouse está sobre ela
+        lampada.addEventListener('mouseover', function() {
+            lampada.src = '2.jpeg';
+        });
+
+        // Função para restaurar a imagem original quando o mouse sai
+        lampada.addEventListener('mouseout', function() {
+            lampada.src = '3.png';
+        });
+    </script>
+</body>
+</html>

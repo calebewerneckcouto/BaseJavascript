@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Soma de Números</h1>
+    <form id="somaForm">
+        <label for="numeros">Digite números separados por vírgula:</label><br>
+        <input type="text" id="numeros" placeholder="Ex: 1,2,3,4,5"><br><br>
+        <button type="button" id="calcularSoma">Calcular Soma</button>
+    </form>
+    <p id="resultadoSoma"></p>
+
+    <script>
+        document.getElementById('calcularSoma').addEventListener('click', function() {
+            // Obtém o valor do campo de entrada e o divide em um array
+            const input = document.getElementById('numeros').value;
+            const numeros = input.split(',').map(num => parseFloat(num.trim()));
+            
+            try {
+                // Calcula a soma
+                const soma = somarNumeros(numeros);
+                document.getElementById('resultadoSoma').textContent = `A soma é: ${soma}`;
+            } catch (error) {
+                document.getElementById('resultadoSoma').textContent = `Erro: ${error.message}`;
+            }
+        });
+
+        function somarNumeros(numeros) {
+            // Valida se a entrada é um array
+            if (!Array.isArray(numeros)) {
+                throw new TypeError('O parâmetro deve ser um array de números.');
+            }
+
+            // Valida se todos os elementos do array são números
+            if (!numeros.every(num => typeof num === 'number')) {
+                throw new TypeError('Todos os elementos do array devem ser números.');
+            }
+
+            // Calcula a soma usando reduce
+            return numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+        }
+    </script>
+</body>
+</html>

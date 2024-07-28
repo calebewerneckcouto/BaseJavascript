@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Formulário</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Cadastro</h1>
+    <form id="myForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="errorMessage" class="error"></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            // Previne o envio do formulário para validar os campos
+            event.preventDefault();
+            
+            // Obtém os valores dos campos
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            // Verifica se todos os campos foram preenchidos
+            if (!name || !email || !password) {
+                // Se algum campo estiver vazio, exibe uma mensagem de erro
+                document.getElementById('errorMessage').textContent = 'Por favor, preencha todos os campos.';
+            } else {
+                // Caso todos os campos estejam preenchidos, limpa a mensagem de erro
+                document.getElementById('errorMessage').textContent = '';
+                alert('Formulário enviado com sucesso!');
+                // Aqui você pode adicionar o código para enviar o formulário
+            }
+        });
+    </script>
+</body>
+</html>

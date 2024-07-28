@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Navegação</title>
+    <style>
+        /* Estilo básico para a lista de itens do menu */
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+        }
+
+        .menu-item {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f0f0f0; /* Cor de fundo padrão */
+            color: #333; /* Cor do texto padrão */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            display: block; /* Faz com que o link ocupe a largura total */
+            border-radius: 4px; /* Adiciona bordas arredondadas */
+            transition: background-color 0.3s ease, font-weight 0.3s ease; /* Transição suave para cor e negrito */
+        }
+
+        /* Estilo para o estado ativo do item do menu */
+        .menu-item:hover {
+            background-color: #3498db; /* Cor de fundo ao passar o mouse */
+            color: #fff; /* Cor do texto ao passar o mouse */
+            font-weight: bold; /* Negrito ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu de Navegação</h1>
+    <ul class="menu">
+        <li><a href="#" class="menu-item">Home</a></li>
+        <li><a href="#" class="menu-item">Sobre</a></li>
+        <li><a href="#" class="menu-item">Serviços</a></li>
+        <li><a href="#" class="menu-item">Contato</a></li>
+    </ul>
+
+    <script>
+        // Seleciona todos os itens do menu
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        // Adiciona eventos de mouseover e mouseout a cada item do menu
+        menuItems.forEach(item => {
+            item.addEventListener('mouseover', function() {
+                this.style.backgroundColor = '#3498db'; // Cor de fundo ao passar o mouse
+                this.style.color = '#fff'; // Cor do texto ao passar o mouse
+                this.style.fontWeight = 'bold'; // Negrito ao passar o mouse
+            });
+
+            item.addEventListener('mouseout', function() {
+                this.style.backgroundColor = '#f0f0f0'; // Cor de fundo padrão
+                this.style.color = '#333'; // Cor do texto padrão
+                this.style.fontWeight = 'normal'; // Fonte normal ao sair o mouse
+            });
+        });
+    </script>
+</body>
+</html>

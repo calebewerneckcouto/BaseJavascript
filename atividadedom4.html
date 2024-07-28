@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+    <style>
+        #container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="inputText" placeholder="Digite suas palavras">
+        <button onclick="addToList()">Adicionar</button>
+        <ul id="wordList"></ul>
+    </div>
+
+    <script>
+        function addToList() {
+            // Obter o valor do campo de entrada
+            var input = document.getElementById('inputText').value;
+            
+            // Dividir o valor em palavras
+            var words = input.split(' ');
+
+            // Obter a referência para a lista
+            var list = document.getElementById('wordList');
+            
+            // Adicionar cada palavra como um item da lista
+            words.forEach(function(word) {
+                if (word.trim() !== '') { // Ignorar palavras vazias
+                    var listItem = document.createElement('li');
+                    listItem.textContent = word;
+                    list.appendChild(listItem);
+                }
+            });
+
+            // Limpar o campo de entrada
+            document.getElementById('inputText').value = '';
+        }
+    </script>
+</body>
+</html>

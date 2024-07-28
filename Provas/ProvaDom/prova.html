@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversor de Unidades</title>
+<script>
+function converter() {
+let metros = parseFloat(document.getElementById("metros").value);
+let opcao = document.getElementById("opcao").value;
+let resultado = 0;
+
+switch(opcao) {
+case "Jarda":
+resultado = metros * 1.094;
+break;
+case "Pé":
+resultado = metros * 3.281;
+break;
+case "Polegada":
+resultado = metros * 39.37;
+break;
+case "Milha":
+resultado = metros * 0.000621;
+break;
+default:
+resultado = 0;
+}
+
+document.getElementById("resultado").innerText = `Resultado: ${resultado.toFixed(3)} ${opcao}(s)`;
+}
+</script>
+</head>
+<body>
+<h1>Conversor de Unidades de Comprimento</h1>
+<div>
+<label for="metros">Digite o valor em metros:</label>
+<input type="number" id="metros" />
+</div>
+<div>
+<label for="opcao">Selecione a unidade de medida de destino:</label>
+<select id="opcao">
+<option value="Jarda">Jarda</option>
+<option value="Pé">Pé</option>
+<option value="Polegada">Polegada</option>
+<option value="Milha">Milha</option>
+</select>
+</div>
+<button onclick="converter()">Converter</button>
+<div id="resultado"></div>
+</body>
+</html>

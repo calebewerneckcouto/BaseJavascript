@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação com Mouseover</title>
+    <style>
+        /* Estilo básico para a div */
+        .interativa {
+            width: 300px;
+            height: 200px;
+            background-color: #3498db; /* Cor de fundo original */
+            margin: 50px auto;
+            border: 2px solid #2980b9;
+            border-radius: 10px;
+            transition: background-color 0.5s ease; /* Transição suave de cor */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="caixa" class="interativa">
+        Passe o mouse sobre mim!
+    </div>
+
+    <script>
+        // Seleciona a div pelo ID
+        const caixa = document.getElementById('caixa');
+
+        // Função para mudar a cor de fundo quando o mouse passa sobre a div
+        caixa.addEventListener('mouseover', function() {
+            caixa.style.backgroundColor = '#2ecc71'; // Cor quando o mouse está sobre a div
+        });
+
+        // Função para restaurar a cor original quando o mouse sai da div
+        caixa.addEventListener('mouseout', function() {
+            caixa.style.backgroundColor = '#3498db'; // Cor original
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo com Input</title>
+</head>
+<body>
+    <h1>Calculadora Simples</h1>
+    <label for="inputValorA">Valor A:</label>
+    <input type="number" id="inputValorA" placeholder="Digite o valor A" />
+
+    <br><br>
+
+    <label for="inputValorB">Valor B:</label>
+    <input type="number" id="inputValorB" placeholder="Digite o valor B" />
+
+    <br><br>
+
+    <button id="calculo">Calcular</button>
+
+    <h2 id="resultado">Resultado: </h2>
+
+    <script>
+        // Seleciona o botão e os campos de input
+        const botaoCalculo = document.getElementById('calculo');
+        const inputValorA = document.getElementById('inputValorA');
+        const inputValorB = document.getElementById('inputValorB');
+        const resultado = document.getElementById('resultado');
+
+        // Adiciona um evento de clique ao botão
+        botaoCalculo.addEventListener('click', function() {
+            // Obtém os valores dos campos de input e converte para números
+            const valorA = parseFloat(inputValorA.value);
+            const valorB = parseFloat(inputValorB.value);
+
+            // Verifica se os valores são números válidos
+            if (!isNaN(valorA) && !isNaN(valorB)) {
+                // Realiza a soma dos valores
+                const soma = valorA + valorB;
+
+                // Exibe o resultado na tela
+                resultado.textContent = `Resultado: ${soma}`;
+            } else {
+                // Caso os valores não sejam números válidos
+                resultado.textContent = 'Por favor, insira valores numéricos válidos.';
+            }
+        });
+    </script>
+</body>
+</html>
