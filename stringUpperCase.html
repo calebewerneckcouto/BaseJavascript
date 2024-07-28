@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades Combinadas</title>
+</head>
+<body>
+    <h1>Resultados das Atividades</h1>
+    <p id="resultado5"></p>
+    <p id="resultado6"></p>
+
+    <script>
+        // Atividade 05: Converter cada string para maiúsculas
+        const palavras = ['maçã', 'banana', 'laranja', 'abacaxi', 'uva'];
+        const palavrasMaiusculas = palavras.map(palavra => palavra.toUpperCase());
+        document.getElementById("resultado5").innerText = "Palavras em maiúsculas: " + palavrasMaiusculas.join(", ");
+
+        // Atividade 06: Filtrar palavras com mais de 5 caracteres
+        const palavrasFiltradas = palavras.filter(palavra => palavra.length > 5);
+        document.getElementById("resultado6").innerText = "Palavras com mais de 5 caracteres: " + palavrasFiltradas.join(", ");
+    </script>
+</body>
+</html>

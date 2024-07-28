@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades Combinadas</title>
+
+    <style>
+        body{
+            text-align: center;
+            margin-top: 35px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados das Atividades</h1>
+  
+    <h3>50, 45, 67, 89, 10, 5</h3>
+    <p id="resultado1"></p>
+   
+    <h3>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</h3>
+    <p id="resultado2"></p>
+
+    
+  
+
+    <script>
+        // Atividade 01: Dobrar cada número
+        const numeros1 = [50, 45, 67, 89, 10, 5];
+        const dobrados = numeros1.map(numero => numero * 2);
+        document.getElementById("resultado1").innerText = "Dobro de cada número: " + dobrados.join(", ");
+
+        // Atividade 02: Filtrar números pares
+        const numeros2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        const pares = numeros2.filter(numero => numero % 2 === 0);
+        document.getElementById("resultado2").innerText = "Números pares: " + pares.join(", ");
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        #postagens {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .postagem {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            padding: 15px;
+            cursor: pointer;
+        }
+        .postagem h3 {
+            margin: 0 0 10px;
+        }
+        .postagem p {
+            margin: 0;
+        }
+        #detalhes {
+            width: 80%;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        #adicionar-postagem {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        input, textarea, button {
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Blog Simples</h1>
+
+    <div id="postagens"></div>
+
+    <div id="detalhes"></div>
+
+    <div id="adicionar-postagem">
+        <h2>Adicionar Nova Postagem</h2>
+        <input type="text" id="titulo" placeholder="Título" />
+        <textarea id="conteudo" rows="4" placeholder="Conteúdo"></textarea>
+        <button onclick="adicionarPostagem()">Adicionar Postagem</button>
+    </div>
+
+    <script>
+        const postagens = [
+            { 
+                id: 1, 
+                titulo: 'Primeira Postagem', 
+                resumo: 'Este é um resumo da primeira postagem.', 
+                conteudo: 'Aqui está o conteúdo completo da primeira postagem. Foi publicado em 01/01/2024.',
+                data: '01/01/2024'
+            },
+            { 
+                id: 2, 
+                titulo: 'Segunda Postagem', 
+                resumo: 'Este é um resumo da segunda postagem.', 
+                conteudo: 'Aqui está o conteúdo completo da segunda postagem. Foi publicado em 05/01/2024.',
+                data: '05/01/2024'
+            }
+        ];
+
+        function mostrarPostagens() {
+            const postagensDiv = document.getElementById('postagens');
+            postagensDiv.innerHTML = '';
+            postagens.forEach(postagem => {
+                const postagemDiv = document.createElement('div');
+                postagemDiv.className = 'postagem';
+                postagemDiv.innerHTML = `
+                    <h3>${postagem.titulo}</h3>
+                    <p>${postagem.resumo}</p>
+                `;
+                postagemDiv.onclick = () => mostrarDetalhes(postagem.id);
+                postagensDiv.appendChild(postagemDiv);
+            });
+        }
+
+        function mostrarDetalhes(id) {
+            const postagem = postagens.find(p => p.id === id);
+            const detalhesDiv = document.getElementById('detalhes');
+            detalhesDiv.innerHTML = `
+                <h2>${postagem.titulo}</h2>
+                <p><strong>Publicado em:</strong> ${postagem.data}</p>
+                <p>${postagem.conteudo}</p>
+            `;
+        }
+
+        function adicionarPostagem() {
+            const titulo = document.getElementById('titulo').value;
+            const conteudo = document.getElementById('conteudo').value;
+            if (titulo && conteudo) {
+                const novaPostagem = {
+                    id: postagens.length + 1,
+                    titulo,
+                    resumo: conteudo.substring(0, 50) + '...',
+                    conteudo,
+                    data: new Date().toLocaleDateString()
+                };
+                postagens.push(novaPostagem);
+                mostrarPostagens();
+                document.getElementById('titulo').value = '';
+                document.getElementById('conteudo').value = '';
+            } else {
+                alert('Por favor, preencha o título e o conteúdo.');
+            }
+        }
+
+        // Inicializar a lista de postagens
+        mostrarPostagens();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades Combinadas</title>
+</head>
+<body>
+    <h1>Resultados das Atividades</h1>
+    <p id="resultado3"></p>
+    <p id="resultado4"></p>
+
+    <script>
+        // Atividade 03: Calcular a soma de todos os números
+        const numeros3 = [1, 2, 3, 4, 5, 6];
+        const soma = numeros3.reduce((total, numero) => total + numero, 0);
+        document.getElementById("resultado3").innerText = "Soma de todos os números: " + soma;
+
+        // Atividade 04: Imprimir cada número elevado ao quadrado
+        const numeros4 = [1, 2, 3, 4, 5, 6];
+        const quadrados = numeros4.map(numero => numero ** 2);
+        document.getElementById("resultado4").innerText = "Cada número elevado ao quadrado: " + quadrados.join(", ");
+    </script>
+</body>
+</html>
