@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros Online</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo de Livros</h1>
+
+        <div>
+            <h2>Adicionar Livro</h2>
+            <input type="text" id="titulo" placeholder="Título">
+            <input type="text" id="autor" placeholder="Autor">
+            <input type="text" id="genero" placeholder="Gênero">
+            <input type="number" id="ano" placeholder="Ano" min="1000" max="2100">
+            <button id="adicionar">Adicionar Livro</button>
+        </div>
+
+        <div>
+            <h2>Buscar Livro</h2>
+            <input type="text" id="busca" placeholder="Buscar por título, autor ou gênero">
+            <button id="buscar">Buscar</button>
+        </div>
+
+        <div>
+            <h2>Avaliar Livro</h2>
+            <input type="text" id="titulo-avaliar" placeholder="Título do Livro">
+            <input type="number" id="avaliacao" placeholder="Avaliação (1-5)" min="1" max="5">
+            <button id="avaliar">Avaliar Livro</button>
+        </div>
+
+        <div>
+            <h2>Livros Disponíveis</h2>
+            <select id="ordenar">
+                <option value="titulo">Título</option>
+                <option value="autor">Autor</option>
+                <option value="avaliacao">Avaliação</option>
+            </select>
+            <button id="listar">Listar Livros</button>
+            <ul id="livros"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

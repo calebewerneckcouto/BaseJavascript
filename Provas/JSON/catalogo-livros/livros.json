@@ -1,0 +1,16 @@
+[
+    {
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "genero": "Romance",
+        "ano": 1899,
+        "avaliacoes": [4, 5, 3]
+    },
+    {
+        "titulo": "O Primo Basílio",
+        "autor": "José de Alencar",
+        "genero": "Romance",
+        "ano": 1878,
+        "avaliacoes": [5, 4]
+    }
+]

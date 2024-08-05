@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+
+    <form>
+            <label for="nome">Nome:</label>
+            <input  type="text" id="nome" />
+            <label for="saudacao">Escreva a sua Saudação:</label>
+            <input  type="text" id="saudacao" />
+            <button onclick="somar();">Enviar</button>
+            
+
+    </form>
+
+    <script>
+        function somar(){
+            let nome = document.getElementById('nome').value;
+            let saudacao = document.getElementById('saudacao').value;
+            alert(saudacao + ' ' + nome);
+        }
+    </script>
+    
+</body>
+</html>
